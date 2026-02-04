@@ -22,6 +22,10 @@ For comprehensive guides, API reference, and tutorials, visit the official Meta 
 - **[Unity Sentis Integration](https://developers.meta.com/horizon/documentation/unity/unity-pca-sentis)** - Using ML/CV models with PCA
 - **[Migration Guide](https://developers.meta.com/horizon/documentation/unity/unity-pca-migration-from-webcamtexture)** - Migrating from WebCamTexture
 
+For the university capstone (TFG) scope and research pipeline used with this repo, see:
+
+- **[TFG: Visión artificial en realidad mixta](./Documentation/TFG_Vision_Artificial_MR.md)**
+
 ## Requirements
 
 - **Unity:** 6000.0.38f1 or newer
@@ -51,20 +55,22 @@ git clone https://github.com/oculus-samples/Unity-PassthroughCameraApiSamples
 
 ## Project Content
 
-The project contains **five sample scenes** that demonstrate how to use the **PassthroughCameraAccess** component to access Quest camera data. All sample code and resources are located in the [**`PassthroughCameraApiSamples`**](./Assets/PassthroughCameraApiSamples/) folder:
+The project now focuses on a **minimal Camera To World workflow** for a TFG project while keeping the Passthrough Camera API infrastructure intact. The primary sample code and resources are located in the [**`PassthroughCameraApiSamples`**](./Assets/PassthroughCameraApiSamples/) folder:
 
-### Samples
+### Samples (active)
 
-* **[`CameraViewer`](./Assets/PassthroughCameraApiSamples/CameraViewer)** - Displays a 2D canvas with camera feed
 * **[`CameraToWorld`](./Assets/PassthroughCameraApiSamples/CameraToWorld)** - Aligns RGB camera pose with Passthrough and transforms 2D coordinates to 3D world space rays
-* **[`BrightnessEstimation`](./Assets/PassthroughCameraApiSamples/BrightnessEstimation)** - Adapts the experience based on environment brightness
-* **[`MultiObjectDetection`](./Assets/PassthroughCameraApiSamples/MultiObjectDetection)** - Uses Unity Sentis for real-world object recognition
-* **[`ShaderSample`](./Assets/PassthroughCameraApiSamples/ShaderSample)** - Applies custom GPU effects to camera texture
+* **[`PassthroughCamera`](./Assets/PassthroughCameraApiSamples/PassthroughCamera)** - Shared camera access components and utilities
 
 ### Additional Components
 
-* **[`PassthroughCamera`](./Assets/PassthroughCameraApiSamples/PassthroughCamera)** - C# classes and utilities for camera access
-* **[`StartScene`](./Assets/PassthroughCameraApiSamples/StartScene)** - Menu scene for switching between samples
+* **[`Assets/Scripts`](./Assets/Scripts)** - Custom capture and export utilities for the TFG pipeline
+
+### Archived Samples
+
+Unused samples have been moved (not deleted) to keep the repository slim while preserving them for later restoration:
+
+* **[`_ArchivedSamples/PassthroughCameraApiSamples`](./Assets/_ArchivedSamples/PassthroughCameraApiSamples)** - CameraViewer, BrightnessEstimation, MultiObjectDetection, ShaderSample, and StartScene
 
 ## Getting Started
 
