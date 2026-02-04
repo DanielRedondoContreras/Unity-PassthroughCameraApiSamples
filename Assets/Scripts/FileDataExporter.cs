@@ -8,16 +8,22 @@ using UnityEngine;
 /// <summary>
 /// Exports captured stereo frames to disk for offline processing.
 ///
-    /// File layout (relative to Application.persistentDataPath):
-    /// ExportedData/
-    ///   session_yyyyMMdd_HHmmss/
-    ///     frame_000001/
-    ///       left.png
-    ///       right.png
-    ///       metadata.json
-    /// </summary>
+/// File layout (relative to Application.persistentDataPath):
+/// ExportedData/
+///   session_yyyyMMdd_HHmmss/
+///     frame_000001/
+///       left.png
+///       right.png
+///       metadata.json
+/// </summary>
 public class FileDataExporter : MonoBehaviour, CameraCapture.IDataExporter
 {
+    /// <summary>Controls whether incoming frames are exported.</summary>
+    public bool EnableExport { get; set; } = false;
+
+    /// <summary>Number of frames successfully written to disk.</summary>
+    public int ExportedFrameCount { get; private set; }
+
     [Tooltip("Maximum number of frames to export per Update.")]
     [SerializeField] private int m_maxExportsPerFrame = 1;
 
@@ -48,6 +54,11 @@ public class FileDataExporter : MonoBehaviour, CameraCapture.IDataExporter
     /// </summary>
     public void ExportFrame(CameraCapture.CameraFrameData frameData)
     {
+        if (!EnableExport)
+        {
+            return;
+        }
+
         if (m_pendingFrames.Count >= m_maxQueuedFrames)
         {
             m_pendingFrames.Dequeue();
@@ -105,6 +116,7 @@ public class FileDataExporter : MonoBehaviour, CameraCapture.IDataExporter
             var metadata = new FrameMetadata(queued);
             var json = JsonUtility.ToJson(metadata, true);
             File.WriteAllText(metadataPath, json);
+            ExportedFrameCount++;
         }
         catch (Exception ex)
         {

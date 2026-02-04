@@ -60,6 +60,7 @@ The project now focuses on a **minimal Camera To World workflow** for a TFG proj
 ### Samples (active)
 
 * **[`CameraToWorld`](./Assets/PassthroughCameraApiSamples/CameraToWorld)** - Aligns RGB camera pose with Passthrough and transforms 2D coordinates to 3D world space rays
+* **[`DatasetRecorder`](./Assets/PassthroughCameraApiSamples/DatasetRecorder)** - Records stereo frames and metadata to disk for offline analysis
 * **[`PassthroughCamera`](./Assets/PassthroughCameraApiSamples/PassthroughCamera)** - Shared camera access components and utilities
 
 ### Additional Components
