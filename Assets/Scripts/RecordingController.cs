@@ -5,16 +5,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Handles user-controlled recording by enabling/disabling CameraCapture and
+/// Handles user-controlled recording by toggling FileDataExporter.EnableExport and
 /// presenting a simple on-screen status indicator.
 /// </summary>
 public class RecordingController : MonoBehaviour
 {
     [SerializeField] private FileDataExporter m_fileDataExporter;
     [SerializeField] private Text m_statusText;
-
-    [Tooltip("Set a capture interval (seconds) when recording. 0 = every Update.")]
-    [SerializeField] private float m_recordingCaptureIntervalSeconds = 0f;
 
     [Header("Haptics")]
     [SerializeField] private bool m_enableHaptics = true;
@@ -39,16 +36,13 @@ public class RecordingController : MonoBehaviour
 
     private void Update()
     {
-        if (IsTogglePressed())
+        if (!IsRecording && IsStartPressed())
         {
-            if (IsRecording)
-            {
-                StopRecording();
-            }
-            else
-            {
-                StartRecording();
-            }
+            StartRecording();
+        }
+        else if (IsRecording && IsStopPressed())
+        {
+            StopRecording();
         }
 
         UpdateStatusText();
@@ -73,11 +67,16 @@ public class RecordingController : MonoBehaviour
         UpdateStatusText();
     }
 
-    private bool IsTogglePressed()
+    private bool IsStartPressed()
     {
         return OVRInput.GetDown(OVRInput.Button.One)
-            || OVRInput.GetDown(OVRInput.Button.Three)
-            || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger);
+            || OVRInput.GetDown(OVRInput.Button.Three);
+    }
+
+    private bool IsStopPressed()
+    {
+        return OVRInput.GetDown(OVRInput.Button.Two)
+            || OVRInput.GetDown(OVRInput.Button.Four);
     }
 
     private void UpdateStatusText()

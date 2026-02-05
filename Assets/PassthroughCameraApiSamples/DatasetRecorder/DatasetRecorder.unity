@@ -1312,7 +1312,8 @@ GameObject:
   - component: {fileID: 910000011}
   - component: {fileID: 910000012}
   - component: {fileID: 910000013}
-  - component: {fileID: 910000014}
+  - component: {fileID: 910000014}  - component: {fileID: 910000015}
+
   m_Layer: 0
   m_Name: DatasetRecorder
   m_TagString: Untagged
@@ -1342,7 +1343,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 910000010}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8541176377c24603992ad0abcb41fd4b, type: 3}
   m_Name: 
@@ -1379,10 +1380,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_fileDataExporter: {fileID: 910000013}
   m_statusText: {fileID: 0}
-  m_recordingCaptureIntervalSeconds: 0
   m_enableHaptics: 1
   m_hapticAmplitude: 0.2
   m_hapticDurationSeconds: 0.05
+
+--- !u!114 &910000015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910000010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f2d6f9ac4d04322914721df20e7fa51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_anchorPosition: {x: 0, y: 1.5, z: 1.5}
+  m_anchorRotationEuler: {x: 0, y: 0, z: 0}
+  m_canvasScale: 0.002
+  m_confirmationDurationSeconds: 2.5
+  m_recordingController: {fileID: 0}
 --- !u!1001 &1798160513
 PrefabInstance:
   m_ObjectHideFlags: 0
