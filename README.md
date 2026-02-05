@@ -72,6 +72,7 @@ The project now focuses on a **minimal Camera To World workflow** for a TFG proj
 Unused samples have been moved (not deleted) to keep the repository slim while preserving them for later restoration:
 
 * **[`_ArchivedSamples/PassthroughCameraApiSamples`](./Assets/_ArchivedSamples/PassthroughCameraApiSamples)** - CameraViewer, BrightnessEstimation, MultiObjectDetection, and ShaderSample
+* **[`_ArchivedSamples/PassthroughCameraApiSamples`](./Assets/_ArchivedSamples/PassthroughCameraApiSamples)** - CameraViewer, BrightnessEstimation, MultiObjectDetection, ShaderSample, and StartScene
 
 ## Getting Started
 
